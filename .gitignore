@@ -1,2 +1,6 @@
 .ipynb_checkpoints/
 .python-version
+*.aux
+*.log
+*.out
+*.gz
