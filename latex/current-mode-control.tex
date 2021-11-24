@@ -39,8 +39,55 @@
 \begin{abstract}
 \noindent
 This document seeks to clarify the block diagrams and equations presented in Dr. Raymond B. Ridley's PhD dissertation, "A New Small-Signal Model for Current-Mode Control."
-All equations presented herein are as applied to a buck converter with constant-frequency, trailing-edge current-mode control.
+All equations presented herein are as applied to a buck converter with constant-frequency, trailing-edge peak current-mode control.
 \end{abstract}
+
+\section{Small-Signal Block Diagram}
+
+Dr. Ridley's diagrams generally mix transfer function blocks with circuit element symbols.
+As an alternative, a complete transfer function block diagram is provided below.
+Transfer function descriptions are included and key parameter definitions are in the margins.
+
+\marginnote{$V_g$ \ \ steady-state input voltage}
+\marginnote{$V_o$ \ \ steady-state output voltage}
+\marginnote{$D=V_o/V_g$ \ \ steady-state duty cycle}
+\marginnote{$\widehat{v}_g$ \ \ small-signal input voltage}
+\marginnote{$\widehat{v}_o$ \ \ small-signal output voltage}
+\marginnote{$\widehat{d}$ \ \ small-signal duty cycle}
+\marginnote{$\widehat{i}_c$ \ \ small-signal inductor current}
+\marginnote{$\widehat{v}_c$ \ \ small-signal control voltage}
+\marginnote{$sL$ \ \ inductor impedance}
+\marginnote{$Z_o(s)$ \ \ output impedance}
+\marginnote{$R_i$ \ \ sense resistor}
+\marginnote{$H_e(s)$ \ \ sample-and-hold effect}
+\marginnote{$F_m$ \ \ modulation gain}
+\marginnote{$k_f$ \ \ input feed-forward gain}
+\marginnote{$k_r$ \ \ output feed-forward gain}
+\marginnote{$S_e$ \ \ slope compensation ramp}
+\marginnote{$S_n=(V_g-V_o)R_i/L$ \ \ on-time ramp}
+\marginnote{$S_f=V_oR_i/L$ \ \ off-time ramp}
+\marginnote{$T_s$ \ \ switching period}
+
+$$F_m=\frac{1}{(S_n+S_e)T_s}$$
+$$H_e(s)=1-s\frac{T_s}{2}+s^2(\frac{T_s}{\pi})^2$$
+
+Multiple forms of the modulation gain $F_m$ can be found in literature; their differences stem from how the average inductor current is defined relative to the peak.
+Dr. Ridley has experimentally verified the modulation gain used in this model is correct.
+
+$H_e(s)$ is an approximation that is only valid up to one-half the switching frequency.
+Such an approximation will suffice because a stable system must have a crossover frequency beneath the Nyquist frequency of the system.
+
+In order to simplify the design of the outer voltage loop feedback compensation network, a transfer function from the duty cycle to inductor current $F_i$ can be defined that is independent of the output impedance $Z_o(s)$.
+Such a transfer function will only be valid for frequencies where $Z_o(s) \ll sL$. Assuming the output impedance is predominantly capacitive, this transfer function would apply above the resonant frequency.
+
+$$F_i=\frac{\widehat{i}_c}{\widehat{d}}=\frac{V_g}{sL}=\frac{S_n+S_f}{sR_i}$$
+$$F_mF_i=\frac{1+\alpha}{sR_iT_s}\text{\ \ , \ }\alpha=\frac{S_f-S_e}{S_n+S_e}$$
+
+The output voltage feed-forward gain $k_r$ can be ignored unless analyzing the low frequency gain of a converter operating near discontinuous conduction mode. The transfer function from the control voltage to inductor current $F(s)$ then becomes rather simple.
+
+$$F(s)=\frac{\widehat{i}_c}{\widehat{v}_c}=\frac{F_mF_i}{1+F_mF_iR_iH_e(s)}$$
+
+\newpage
 
 \section{Page Layout}\label{sec:page-layout}
 \subsection{Headings}\label{sec:headings}
