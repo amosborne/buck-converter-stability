@@ -110,13 +110,70 @@ Such an approximation will suffice because a stable system must have a crossover
 In order to simplify the design of the outer voltage loop feedback compensation network, a transfer function from the duty cycle to inductor current $F_i$ can be defined that is independent of the output impedance $Z_o(s)$.
 Such a transfer function will only be valid for frequencies where $Z_o(s) \ll sL$. Assuming the output impedance is predominantly capacitive, this transfer function would apply above the resonant frequency.
 \begin{align*}
-F_i&=\frac{\widehat{i}_c}{\widehat{d}}=\frac{V_g}{sL}=\frac{S_n+S_f}{sR_i}\\[0.75em]
+F_i&=\frac{\widehat{i}_c}{\widehat{d}}=\frac{V_g}{sL+Z_o(s)}\approx\frac{V_g}{sL}=\frac{S_n+S_f}{sR_i}\\[0.75em]
 \alpha&=\frac{S_f-S_e}{S_n+S_e}\\[0.75em]
-F_mF_i&=\frac{1+\alpha}{sR_iT_s}
+F_mF_i&\approx\frac{1+\alpha}{sR_iT_s}
 \end{align*}
 
 The output voltage feed-forward gain $k_r$ can be ignored unless analyzing the low frequency gain of a converter operating near discontinuous conduction mode. The transfer function from the control voltage to inductor current $F(s)$ then becomes rather simple.
+\begin{align*}
+F(s)=\frac{\widehat{i}_c}{\widehat{v}_c}&=\frac{F_mV_g}{sL+Z_o(s)+F_mV_g(R_iH_e(s)-k_rZ_o(s))}\\[0.75em]
+&\approx\frac{F_mF_i}{1+F_mF_iR_iH_e(s)}
+\end{align*}
 
-$$F(s)=\frac{\widehat{i}_c}{\widehat{v}_c}=\frac{F_mF_i}{1+F_mF_iR_iH_e(s)}$$
+\section{Closed-Loop Design Procedure}
+
+\begin{fullwidth}
+\begin{tikzpicture}[auto,
+                    >=latex,
+                    block/.style={draw, rectangle, align=center, minimum height=2.25em, minimum width=2.25em},
+                    circ/.style={draw, circle, align=center, inner sep=0pt, minimum size=1em},
+                    ra/.style={->, rounded corners=0.5em}]
+
+\matrix[column sep=0.75cm, row sep=0.5cm]{
+
+\node (iohat) {$\widehat{i}_o$}; &
+\node [circ] (c01) {$+$}; & & & &
+\node [block] (Zo) {$Z_o(s)$}; &
+\node (vohat) {$\widehat{v}_o$}; \\
+
+& & \node [block] (Fs) {$F(s)$}; &
+\node [block] (Zea) {$Z_{ea}(s)$}; &
+\node [block] (gmea) {$g_{mea}$}; &
+\node [block] (Gfb) {$G_{fb}(s)$}; \\};
+
+\draw [->] (iohat) -- node[pos=0.8] {$-$} (c01);
+\draw [->] (c01) -- (Zo);
+\draw [->] (Zo) -- node[name=vo] {} (vohat);
+\draw [->] (Gfb) -- node[name=vfb] {$\widehat{v}_{fb}$} (gmea);
+\draw [->] (gmea) -- (Zea);
+\draw [->] (Zea) -- node[name=vc] {$\widehat{v}_c$} (Fs);
+\draw [ra] (Fs) -| node[name=ic] {$\widehat{i}_c$} (c01);
+\draw [ra] (vo) |- (Gfb);
+
+\end{tikzpicture}
+\end{fullwidth}
+
+A typical network to close the loop around $F(s)$ is shown above. The load is assumed to be an ideal current sink $\widehat{i}_o$.
+The output voltage passes through the feedback network $G_{fb}(s)$ and is compared against a fixed reference voltage.
+A transconductance error amplifier $g_{mea}$ is loaded by the error amplifier compensation network $Z_{ea}(s)$ to generate the control voltage.
+
+The loop gain $T(s)$ is designed for the appropriate stability margin.
+The step response is derived from the closed-loop transfer function $Y(s)$.
+\begin{align*}
+T(s)&=F(s)Z_o(s)G_{fb}(s)g_{mea}Z_{ea}(s)\\[0.75em]
+Y(s)&=\frac{\widehat{v}_o}{\widehat{i}_o}=\frac{Z_o(s)}{T(s)-1}=\frac{Z_o(s)}{F(s)Z_o(s)G_{fb}(s)g_{mea}Z_{ea}(s)-1}
+\end{align*}
+
+An iterative design procedure will yield good results.
+In general, reducing $Z_o(s)$ and increasing the gain and bandwidth of $T(s)$ will yield a step response with less overshoot and faster settling time.
+\begin{enumerate}
+\item Select a ripple current relative to the maximum load current, 10\% to 30\% is typical.
+Select a switching frequency and inductance $L$.
+Design $Z_o(s)$ to have low impedance at the switching frequency to meet the required voltage ripple.
+\item Use the approximate form of $F(s)$ to design $Z_o(s)$, $G_{fb}(s)$, and $Z_{ea}(s)$ to stabilize the loop gain.
+This will require an initial guess for the required low frequency impedance of $Z_o(s)$. $G_{fb}(s)Z_{ea}(s)$ must, at a minimum, be a Type-II network.
+\item Use the exact form of $F(s)$ to simulate the closed-loop step response. Iterate the design of $Z_o(s)$, $G_{fb}(s)$, and $Z_{ea}(s)$ to achieve the desired step response.
+\end{enumerate}
 
 \end{document}
