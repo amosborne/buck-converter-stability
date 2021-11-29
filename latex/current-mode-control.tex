@@ -96,7 +96,7 @@ As an alternative, a complete transfer function block diagram is provided above.
 Transfer function descriptions and key parameter definitions are in the margins.
 \begin{align*}
 F_m&=\frac{1}{(S_n+S_e)T_s}\\[0.75em]
-H_e(s)&=1-s\frac{T_s}{2}+s^2\left(\frac{T_s}{\pi}\right)^2\\[0.75em]
+H_e(s)&=\frac{sT_s}{e^{sT_s}-1}\approx1-s\frac{T_s}{2}+s^2\left(\frac{T_s}{\pi}\right)^2\\[0.75em]
 k_f&=\frac{-DT_sR_i}{L}\left(1-\frac{D}{2}\right)\\[0.75em]
 k_r&=\frac{T_sR_i}{2L}
 \end{align*}
@@ -104,8 +104,9 @@ k_r&=\frac{T_sR_i}{2L}
 Multiple forms of the modulation gain $F_m$ can be found in literature; their differences stem from how the average inductor current is defined relative to the peak.
 Dr. Ridley has experimentally verified the modulation gain used in this model is correct.
 
-$H_e(s)$ is an approximation that is only valid up to one-half the switching frequency.
+Dr. Ridley uses a curve-fitting approach to approximate $H_e(s)$; his approximation is only valid up to one-half the switching frequency.
 Such an approximation will suffice because a stable system must have a crossover frequency beneath the Nyquist frequency of the system.
+The Pad\'e Approximant could alternatively be used for an approximation that is valid beyond one-half the switching frequency.
 
 In order to simplify the design of the outer voltage loop feedback compensation network, a transfer function from the duty cycle to inductor current $F_i$ can be defined that is independent of the output impedance $Z_o(s)$.
 Such a transfer function will only be valid for frequencies where $Z_o(s) \ll sL$. Assuming the output impedance is predominantly capacitive, this transfer function would apply above the resonant frequency.
@@ -139,7 +140,7 @@ F(s)=\frac{\widehat{i}_c}{\widehat{v}_c}&=\frac{F_mV_g}{sL+Z_o(s)+F_mV_g(R_iH_e(
 
 & & \node [block] (Fs) {$F(s)$}; &
 \node [block] (Zea) {$Z_{ea}(s)$}; &
-\node [block] (gmea) {$g_{mea}$}; &
+\node [block] (gmea) {$-g_{mea}$}; &
 \node [block] (Gfb) {$G_{fb}(s)$}; \\};
 
 \draw [->] (iohat) -- node[pos=0.8] {$-$} (c01);
