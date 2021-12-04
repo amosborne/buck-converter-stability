@@ -140,7 +140,7 @@ F(s)=\frac{\widehat{i}_c}{\widehat{v}_c}&=\frac{F_mV_g}{sL+Z_o(s)+F_mV_g(R_iH_e(
 
 & & \node [block] (Fs) {$F(s)$}; &
 \node [block] (Zea) {$Z_{ea}(s)$}; &
-\node [block] (gmea) {$-g_{mea}$}; &
+\node [block] (gmea) {$g_{mea}$}; &
 \node [block] (Gfb) {$G_{fb}(s)$}; \\};
 
 \draw [->] (iohat) -- node[pos=0.8] {$-$} (c01);
@@ -149,7 +149,7 @@ F(s)=\frac{\widehat{i}_c}{\widehat{v}_c}&=\frac{F_mV_g}{sL+Z_o(s)+F_mV_g(R_iH_e(
 \draw [->] (Gfb) -- node[name=vfb] {$\widehat{v}_{fb}$} (gmea);
 \draw [->] (gmea) -- (Zea);
 \draw [->] (Zea) -- node[name=vc] {$\widehat{v}_c$} (Fs);
-\draw [ra] (Fs) -| node[name=ic] {$\widehat{i}_c$} (c01);
+\draw [ra] (Fs) -| node[name=ic] {$\widehat{i}_c$} node[pos=0.9] {$-$} (c01);
 \draw [ra] (vo) |- (Gfb);
 
 \end{tikzpicture}
@@ -163,7 +163,7 @@ The loop gain $T(s)$ is designed for the appropriate stability margin.
 The step response is derived from the closed-loop transfer function $Y(s)$.
 \begin{align*}
 T(s)&=F(s)Z_o(s)G_{fb}(s)g_{mea}Z_{ea}(s)\\[0.75em]
-Y(s)&=\frac{\widehat{v}_o}{\widehat{i}_o}=\frac{Z_o(s)}{T(s)-1}=\frac{Z_o(s)}{F(s)Z_o(s)G_{fb}(s)g_{mea}Z_{ea}(s)-1}
+Y(s)&=\frac{\widehat{v}_o}{\widehat{i}_o}=\frac{-Z_o(s)}{1+T(s)}=\frac{-Z_o(s)}{1+F(s)Z_o(s)G_{fb}(s)g_{mea}Z_{ea}(s)}
 \end{align*}
 
 An iterative design procedure will yield good results.
