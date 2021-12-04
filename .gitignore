@@ -5,3 +5,6 @@ __pycache__/
 *.log
 *.out
 *.gz
+altium/History/
+altium/sch/__Previews/
+Status Report.txt
