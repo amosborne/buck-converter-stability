@@ -17,15 +17,15 @@ RevisionNamingSchemeGUID=
 [OutputGroup1]
 Name=BuckConverterAP64500.OutJob
 Description=
-TargetOutputMedium=BOM
+TargetOutputMedium=SCH
 VariantName=[No Variations]
 VariantScope=1
 CurrentConfigurationName=
-TargetPrinter=Microsoft Print to PDF
+TargetPrinter=Virtual Printer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputMedium1=Print Job
 OutputMedium1_Type=Printer
-OutputMedium1_Printer=
+OutputMedium1_Printer=Microsoft Print to PDF
 OutputMedium1_PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputMedium2=SCH
 OutputMedium2_Type=Publish
@@ -36,20 +36,20 @@ OutputName1=Schematic Prints
 OutputCategory1=Documentation
 OutputDocumentPath1=[Project Physical Documents]
 OutputVariantName1=
-OutputEnabled1=0
+OutputEnabled1=1
 OutputEnabled1_OutputMedium1=0
 OutputEnabled1_OutputMedium2=1
 OutputEnabled1_OutputMedium3=0
 OutputDefault1=0
-PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.99|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
+PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.98|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PrintScaleMode=1|PrintScaleName=PrintFitPageWidth|PaperKind=Letter|PaperIndex=1
 Configuration1_Name1=OutputConfigurationParameter1
-Configuration1_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ShowOpenEnds=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0|DocumentPath=
+Configuration1_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ShowOpenEnds=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0|DocumentPath=[Project Physical Documents]
 OutputType2=BOM_PartType
 OutputName2=Bill of Materials
 OutputCategory2=Report
 OutputDocumentPath2=[ActiveBOM Document]
 OutputVariantName2=
-OutputEnabled2=1
+OutputEnabled2=0
 OutputEnabled2_OutputMedium1=0
 OutputEnabled2_OutputMedium2=0
 OutputEnabled2_OutputMedium3=1
@@ -58,7 +58,7 @@ PageOptions2=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintS
 Configuration2_Name1=ColumnNameFormat
 Configuration2_Item1=CaptionAsName
 Configuration2_Name2=General
-Configuration2_Item2=OpenExported=False|AddToProject=True|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=True|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=2|FormWidth=1200|FormHeight=710|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration2_Item2=OpenExported=False|AddToProject=True|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=True|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=2|FormWidth=1200|FormHeight=710|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=0|UseDirectApi=True|BomSetName=
 Configuration2_Name3=GroupOrder
 Configuration2_Item3=
 Configuration2_Name4=SortOrder
@@ -73,9 +73,9 @@ Configuration2_Name8=VisibleOrder_Flat
 Configuration2_Item8=Line #=54|Comment=52|Description=82|Designator=80|Manufacturer 1=102|Manufacturer Part Number 1=169|Manufacturer Lifecycle 1=147|Supplier 1=5|Supplier Part Number 1=178|Supplier Unit Price 1=108|Supplier Subtotal 1=122
 
 [PublishSettings]
-OutputFilePath2=C:\Users\osbor\Desktop\buck-converter-stability\altium\doc\.PDF
+OutputFilePath2=C:\Users\osbor\Desktop\buck-converter-stability\altium\doc\BuckConverterAP64500-SCH.pdf
 ReleaseManaged2=0
-OutputBasePath2=C:\Users\osbor\Desktop\buck-converter-stability\altium\doc\
+OutputBasePath2=doc\
 OutputPathMedia2=
 OutputPathMediaValue2=
 OutputPathOutputer2=[Output Type]
@@ -85,8 +85,8 @@ OutputFileName2=BuckConverterAP64500-SCH.pdf
 OutputFileNameMulti2=
 UseOutputNameForMulti2=1
 OutputFileNameSpecial2=
-OpenOutput2=1
-PromptOverwrite2=1
+OpenOutput2=0
+PromptOverwrite2=0
 PublishMethod2=0
 ZoomLevel2=50
 FitSCHPrintSizeToDoc2=0
@@ -112,13 +112,13 @@ OutputFileName3=
 OutputFileNameMulti3=BuckConverterAP64500-BOM
 UseOutputNameForMulti3=0
 OutputFileNameSpecial3=
-OpenOutput3=1
+OpenOutput3=0
 
 [GeneratedFilesSettings]
-RelativeOutputPath2=C:\Users\osbor\Desktop\buck-converter-stability\altium\doc\.PDF
-OpenOutputs2=1
+RelativeOutputPath2=C:\Users\osbor\Desktop\buck-converter-stability\altium\doc\BuckConverterAP64500-SCH.pdf
+OpenOutputs2=0
 RelativeOutputPath3=C:\Users\osbor\Desktop\buck-converter-stability\altium\bom\
-OpenOutputs3=1
+OpenOutputs3=0
 AddToProject3=1
 TimestampFolder3=0
 UseOutputName3=0
