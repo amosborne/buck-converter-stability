@@ -47,7 +47,7 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=lib\DCDC_CHANNEL.SchLib
+DocumentPath=lib\CLK_DISTRO.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -64,7 +64,7 @@ GenerateClassCluster=0
 DocumentUniqueId=OZNAHOHN
 
 [Document2]
-DocumentPath=lib\DCDC_CHANNEL.PcbLib
+DocumentPath=lib\CLK_DISTRO.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -81,7 +81,7 @@ GenerateClassCluster=0
 DocumentUniqueId=CTYDEEXS
 
 [Document3]
-DocumentPath=sch\DCDC_CHANNEL.SchDoc
+DocumentPath=sch\CLK_DISTRO.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -98,7 +98,7 @@ GenerateClassCluster=0
 DocumentUniqueId=FMAMWDJJ
 
 [Document4]
-DocumentPath=job\DCDC_CHANNEL.OutJob
+DocumentPath=job\CLK_DISTRO.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -115,7 +115,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document5]
-DocumentPath=bom\DCDC_CHANNEL.BomDoc
+DocumentPath=bom\CLK_DISTRO.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0

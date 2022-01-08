@@ -14,3 +14,6 @@ for line in status.splitlines():
 # 2. Format the bill of materials spreadsheet.
 import altium.DCDC_CHANNEL.job.run_all_containers
 import altium.DCDC_CHANNEL.bom.format_bom
+
+import altium.CLK_DISTRO.job.run_all_containers
+import altium.CLK_DISTRO.bom.format_bom
