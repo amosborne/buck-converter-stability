@@ -10,8 +10,7 @@ for line in status.splitlines():
 		if match.group(2).startswith("altium/"):
 			raise UserWarning("Unstaged or untracked file on altium/ path.")
 
-# Run all Altium output job containers.
-import altium.job.run_all_containers
-
-# Format the bill of materials spreadsheet.
-import altium.bom.format_bom
+# 1. Run all Altium output job containers.
+# 2. Format the bill of materials spreadsheet.
+import altium.DCDC_CHANNEL.job.run_all_containers
+import altium.DCDC_CHANNEL.bom.format_bom

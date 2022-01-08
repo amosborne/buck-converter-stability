@@ -47,7 +47,7 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=lib\BuckConverterAP64500.SchLib
+DocumentPath=lib\DCDC_CHANNEL.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -64,7 +64,7 @@ GenerateClassCluster=0
 DocumentUniqueId=OZNAHOHN
 
 [Document2]
-DocumentPath=lib\BuckConverterAP64500.PcbLib
+DocumentPath=lib\DCDC_CHANNEL.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -81,7 +81,7 @@ GenerateClassCluster=0
 DocumentUniqueId=CTYDEEXS
 
 [Document3]
-DocumentPath=sch\BuckConverterAP64500.SchDoc
+DocumentPath=sch\DCDC_CHANNEL.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -98,7 +98,7 @@ GenerateClassCluster=0
 DocumentUniqueId=FMAMWDJJ
 
 [Document4]
-DocumentPath=job\BuckConverterAP64500.OutJob
+DocumentPath=job\DCDC_CHANNEL.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -115,7 +115,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document5]
-DocumentPath=bom\BuckConverterAP64500.BomDoc
+DocumentPath=bom\DCDC_CHANNEL.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
