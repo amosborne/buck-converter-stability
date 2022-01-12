@@ -7,7 +7,7 @@ from pywinauto.application import Application
 
 # Start Altium Designer or connect to it if already open.
 exe_name = "X2.EXE"
-exe_path = "C:/Program Files/Altium/AD21/"
+exe_path = "C:/Program Files/Altium/AD22/"
 
 if exe_name in (p.name() for p in psutil.process_iter()):
     app = Application().connect(path=exe_path + exe_name)
