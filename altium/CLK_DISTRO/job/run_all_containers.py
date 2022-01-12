@@ -5,6 +5,8 @@ import time
 import psutil
 from pywinauto.application import Application
 
+job_count = 3
+
 # Start Altium Designer or connect to it if already open.
 exe_name = "X2.EXE"
 exe_path = "C:/Program Files/Altium/AD22/"
@@ -36,7 +38,6 @@ for i in range(2):
 
 # Tab over to output containers. For each container, run output with F9.
 top_dlg.type_keys("{TAB}")
-job_count = 2
 for i in range(job_count):
     time.sleep(1)
     top_dlg.type_keys("{UP}")
