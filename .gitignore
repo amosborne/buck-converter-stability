@@ -5,6 +5,8 @@ __pycache__/
 *.raw
 *.aux
 *.log
+*.net
+*.plt
 *.out
 *.gz
 History/
